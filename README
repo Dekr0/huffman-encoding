@@ -1,0 +1,33 @@
+# About
+
+- An implementation of Huffman encoding written in Python.
+- I might rewrite it into a more performance version with other languages like C 
+and Zig if I have spare time to work on this again.
+
+## Usage
+
+### Unit Testing
+
+- `make test` - perform unit testing (compression and decompression cycle) on 
+three different files (test.txt, arrow.png, and oval.png).
+
+### HTTP Server
+
+- There's a HTTP server included. It serves Huffman encoded files to the client. 
+Huffman decoding is performed before content is sent over the client.
+
+<br>
+
+- `make clean` to remove all generated Huffman encoded files previously
+- `make server` - launch the HTTP server. At this stage, any HTTP request to the 
+server will result a 404 Error because its content is not Huffman encoded yet.
+- `make reload` - perform Huffman encoding on the content of this HTTP server.
+
+## Included files
+
+- `Makefile`: automation for launching HTTP server and unit testing
+- `bitio.py`: Contains the classs BitWriter and BitReader
+- `compress.py`: Entry point for Huffman encoding a file
+- `decompress.py`: Entry point for Huffman decoding a file
+- `huffman.py`: Used to create huffman trees as well as encode and decode messages
+- `webserver.py`: a HTTP server that serves Huffman encoded content
